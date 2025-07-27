@@ -1,4 +1,4 @@
-# 💰 SalaryPreds
+# 💰 Income Bracket Predictor
 
 **SalaryPreds** is an AI-powered web application that predicts whether a person earns more than $50,000 per year based on U.S. Census data. Built with a focus on **explainability**, the app not only makes predictions but also **visualizes the top features driving the decision using SHAP**.
 
