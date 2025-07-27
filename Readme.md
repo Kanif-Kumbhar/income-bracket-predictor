@@ -30,15 +30,15 @@ The model was trained and validated on the [UCI Adult Income Dataset](https://ar
 
 ### 📌 Confusion Matrix (XGBoost)
 
-![Confusion Matrix](assets\model_2_confusion_matrix.png)
+![Confusion Matrix](assets/model_2_confusion_matrix.png)
 
 ### 📈 SHAP Force Plot
 
-![SHAP Force Plot](assets\model_2_shap_force_plot.png)
+![SHAP Force Plot](assets/model_2_shap_force_plot.png)
 
 ### 📊 SHAP Summary Plot
 
-![SHAP Summary Plot](assets\model_2_shap_summary.png)
+![SHAP Summary Plot](assets/model_2_shap_summary.png)
 
 > All visualizations were generated using `matplotlib`, `seaborn`, and `shap`.
 
