@@ -145,7 +145,7 @@ st.markdown(
     """
     <hr style="margin-top: 50px;">
     <div style="text-align: center; padding: 10px; font-size: 14px; color: gray;">
-        Code. Coffee. Creation. — <strong>TheOddDev</strong>
+        Code. Coffee. Creation. — <strong>Kanif Kumbhar</strong>
     </div>
     """,
     unsafe_allow_html=True
