@@ -1,22 +1,3 @@
-Great! Here's a **complete, professional `README.md`** tailored for your project `SalaryPreds` — highlighting that you’re a solo developer, and including sections for:
-
-* Project intro
-* Demo
-* Features
-* Tech stack
-* Model evaluation (with placeholders for plots)
-* SHAP explanation
-* How to run locally
-* Folder structure
-* Credits
-
----
-
-You can paste this directly into your `README.md` file:
-
----
-
-````markdown
 # 💰 SalaryPreds
 
 **SalaryPreds** is an AI-powered web application that predicts whether a person earns more than $50,000 per year based on U.S. Census data. Built with a focus on **explainability**, the app not only makes predictions but also **visualizes the top features driving the decision using SHAP**.
@@ -34,27 +15,30 @@ Coming soon...
 
 ## 🎯 Features
 
-- ✅ Predict income class (`<=50K` or `>50K`) using trained ML model
-- ✅ Built-in preprocessing using pipelines (OneHot, StandardScaler, etc.)
+- ✅ Predict income class (`<=50K` or `>50K`) using a trained ML model
+- ✅ End-to-end preprocessing with Scikit-learn Pipelines
 - ✅ SHAP waterfall plot for individual prediction explanation
-- ✅ Feature importance bar chart
-- ✅ Responsive Streamlit UI with tooltips
-- ✅ Fully open-source, reproducible ML workflow
+- ✅ SHAP force and summary plots for global interpretation
+- ✅ Interactive Streamlit UI
+- ✅ Lightweight and reproducible
 
 ---
 
 ## 📊 Model Evaluation
 
-The model was trained and validated on the [UCI Adult Income Dataset](https://archive.ics.uci.edu/ml/datasets/adult). Several models were evaluated before finalizing `XGBoost`.
+The model was trained and validated on the [UCI Adult Income Dataset](https://archive.ics.uci.edu/ml/datasets/adult). Several models were tested, and **XGBoost** was chosen for its superior performance.
 
 ### 📌 Confusion Matrix (XGBoost)
-![Confusion Matrix](model_2_assets/confusion_matrix_xgb.png)
 
-### 📈 Shap Force Plot
-![Shap Force Plot](assets/model_2_shap_force_plot.png)
+![Confusion Matrix](model_training/diagram/confusion_matrix_xgb.png)
 
-### 📊 Shap Summary
-![Shap Summary](assets/model_2_shap_summary.png)
+### 📈 SHAP Force Plot
+
+![SHAP Force Plot](model_training/diagram/shap_force.png)
+
+### 📊 SHAP Summary Plot
+
+![SHAP Summary Plot](model_training/diagram/shap_summary.png)
 
 > All visualizations were generated using `matplotlib`, `seaborn`, and `shap`.
 
@@ -62,22 +46,22 @@ The model was trained and validated on the [UCI Adult Income Dataset](https://ar
 
 ## 🧠 SHAP Explanation
 
-To ensure transparency, predictions are accompanied by **SHAP waterfall plots** explaining how each input feature influenced the decision.
+To ensure transparency, every prediction is accompanied by a **SHAP waterfall plot** explaining how each input feature contributed to the outcome.
 
-![SHAP Waterfall](assets/shap_waterfall.png)
+![SHAP Waterfall](model_training/diagram/shap_waterfall.png)
 
 ---
 
 ## 🛠 Tech Stack
 
-| Layer         | Tools Used                            |
-|---------------|----------------------------------------|
-| 👨‍💻 ML Model    | XGBoost, Scikit-learn Pipelines       |
-| 📊 Explainability | SHAP                                 |
-| 🧪 Preprocessing | OneHotEncoder, StandardScaler         |
-| 🌐 Frontend    | Streamlit                             |
-| 🔎 Visualization| Matplotlib, Seaborn                   |
-| 🐍 Packaging   | pipreqs, joblib                        |
+| Layer           | Tools Used                              |
+|------------------|------------------------------------------|
+| 👨‍💻 ML Model      | XGBoost, Scikit-learn Pipelines         |
+| 📊 Explainability | SHAP                                     |
+| 🧪 Preprocessing  | OneHotEncoder, StandardScaler           |
+| 🌐 Frontend      | Streamlit                               |
+| 📈 Visualization | Matplotlib, Seaborn                      |
+| 🐍 Packaging     | pipreqs, joblib                          |
 
 ---
 
@@ -87,45 +71,44 @@ To ensure transparency, predictions are accompanied by **SHAP waterfall plots** 
    ```bash
    git clone https://github.com/TheOddDev/SalaryPreds.git
    cd SalaryPreds
-````
+   ```
 
-2. **Create and activate virtual environment**
-
+2. **Create and activate a virtual environment**
    ```bash
    python -m venv venv
-   venv\Scripts\activate   # On Windows
-   source venv/bin/activate  # On macOS/Linux
+   venv\Scripts\activate        # On Windows
+   source venv/bin/activate     # On macOS/Linux
    ```
 
 3. **Install dependencies**
-
    ```bash
    pip install -r requirements.txt
    ```
 
 4. **Run the app**
-
    ```bash
    streamlit run app.py
    ```
 
 ---
 
-## 📁 Project Structure
+## 📁 Folder Structure
 
 ```
 SalaryPreds/
 │
-├── app.py                     # Streamlit frontend
-├── model/
-│   ├── income_model.pkl       # Trained model
-│   └── preprocessor.pkl       # Scikit-learn pipeline
+├── app.py                         # Streamlit frontend
+├── model_training/
+│   ├── model/                     # Trained model and preprocessor
+│   │   ├── income_model.pkl
+│   │   └── preprocessor.pkl
+│   └── diagram/                   # Evaluation and SHAP plots
+│       ├── confusion_matrix_xgb.png
+│       ├── shap_force.png
+│       ├── shap_summary.png
+│       └── shap_waterfall.png
 ├── dataset/
-│   └── adult.csv              # Training dataset
-├── assets/
-│   ├── confusion_matrix_xgb.png
-│   ├── model_accuracy_comparison.png
-│   └── shap_waterfall_example.png
+│   └── adult.csv                  # Raw dataset
 ├── requirements.txt
 └── README.md
 ```
@@ -148,22 +131,8 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## 🙌 Acknowledgments
 
-* UCI Machine Learning Repository – [Adult Income Dataset](https://archive.ics.uci.edu/ml/datasets/adult)
-* [SHAP by Scott Lundberg](https://github.com/slundberg/shap)
-* [Streamlit](https://streamlit.io/)
+- [UCI Machine Learning Repository – Adult Dataset](https://archive.ics.uci.edu/ml/datasets/adult)
+- [SHAP by Scott Lundberg](https://github.com/slundberg/shap)
+- [Streamlit](https://streamlit.io/)
 
 ---
-
-```
-
----
-
-### ✅ Next Steps for You
-
-1. Replace image placeholders (`assets/*.png`) with your actual plots.
-2. Add your license (`LICENSE` file with MIT content).
-3. Deploy your app on **Streamlit Cloud**, **Render**, or **HuggingFace Spaces** and update the demo link.
-4. Optionally add badges (e.g., Python version, MIT License, etc.)
-
-Would you like me to generate a `LICENSE` file for MIT or help you with deployment instructions too?
-```
